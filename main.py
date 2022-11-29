@@ -946,13 +946,18 @@ if __name__ == '__main__':
     # print(x)
     # -------- prepare data to models: --------
     plot_descriptive_statistics()
+    # ****** x - y split
     y = df.pop('income')
+    #X = df.loc[:, ~df.columns.isin(cols_to_drop)]  #independent columns
+    #y = df['income']   #target column 
     orig_names = df.columns.tolist()  # column names before dummies
     print("_______________________________________")
+     # ****** dummies
     df = pd.get_dummies(df, columns=['workclass', 'occupation', 'relationship', 'race',
                                      'sex'])
     df.columns = df.columns.tolist()
     # df[['age', 'fnlwgt', 'hours.per.week']] = df[['age', 'fnlwgt', 'hours.per.week']].astype(int)
+     # ****** train - test split
     X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.2, random_state=42)
 
     # ------- oversample -----------
