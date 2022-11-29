@@ -367,6 +367,8 @@ def box_plots(df):
     df.boxplot(column=['capital.gain'], ax=axs[1, 0], widths=(0.5), color='darkred')
     df.boxplot(column=['capital.loss'], ax=axs[1, 1], widths=(0.5), color='darkred')
     df.boxplot(column=['hours.per.week'], ax=axs[1, 2], widths=(0.5), color='darkred')
+    #   ax = sns.boxplot(x=x, y=y, data=df)
+    #   plt.xticks(rotation=45)
     plt.show()
 
 
